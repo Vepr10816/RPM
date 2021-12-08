@@ -1,0 +1,28 @@
+﻿@model RPM_3_Course.Models.User
+
+@{
+    ViewBag.Title = "Вход";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<body style="background-color:#808080">
+    <div style="text-align:center; background-color:#EEE2DC">
+        <form asp-controller="Home" class="box">
+            <div>
+                <div>
+                    <h1>Вход</h1>
+                    <label asp-for="Login"></label><br />
+                    <input type="text" asp-for="Login" class="form-control" placeholder="Login" />
+                </div>
+                <div>
+                    <label asp-for="Password"></label><br />
+                    <input type="password" asp-for="Password" class="form-control" placeholder="********" />
+                </div>
+                <div class="form-group">
+                    <input style="background-color:white" type="submit" value="Войти" class="btn btn-default" />
+                </div>
+                <a asp-action="Registration">Зарегистрироваться</a>
+            </div>
+        </form>
+    </div>
+</body>

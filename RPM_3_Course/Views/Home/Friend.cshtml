@@ -1,0 +1,111 @@
+﻿@model RPM_3_Course.Models.User
+
+
+
+    @{
+        ViewData["Title"] = "Profile";
+        Layout = "~/Views/Shared/_Layout3.cshtml";
+    }
+
+
+@*
+<div class="parent" style="text-align: center;">
+    <div style="text-align: center;" class="child">
+        <img width="300" height="300" src="@Url.Content(ViewBag.Message)">
+    </div>
+    <div class="child">
+        <form asp-action="edit" asp-controller="home" class="box" style="text-align: center;">
+            <input type="hidden" asp-for="Id" />
+            <div>
+                @Html.DisplayFor(model => model.Email)
+            </div>
+            <div hidden="hidden">
+                <input name="Логин: " type="text" asp-for="Login " />
+            </div>
+            <div hidden="hidden">
+                <input name="Пароль: " type="text" asp-for="Password" />
+            </div>
+            <div>
+                @Html.DisplayFor(model => model.Last_Name)
+            </div>
+            <div>
+                @Html.DisplayFor(model => model.First_Name)
+            </div>
+            <div>
+                @Html.DisplayFor(model => model.Middle_Name)
+            </div>
+            <div>
+                @Html.DisplayFor(model => model.Date_Of_Birth)
+            </div>
+            <div>
+                <input asp-for="RolesId" type="hidden" />
+            </div>
+            <div>
+                <input asp-for="PictureeId" type="hidden" />
+            </div>
+            <div class="parent" >
+                <div class="child2"><a asp-action="PostFriendView" asp-controller="home" asp-route-id="@Model.Id">Посмотреть  посты друга</a></div>>
+            </div>
+        </form>
+    </div>
+</div>*@
+
+<body style="background-color:#808080">
+    <div style="text-align:center; background-color:#EEE2DC">
+        <h1 style="text-align: center" ;>
+            @Html.DisplayFor(model => model.Login)
+        </h1>
+        <table style="display: inline-block;">
+            <tr>
+                <td>
+                    <img width="300" height="300" src="@Url.Content(ViewBag.Message)">
+                </td>
+                <td width="100">
+                </td>
+                <td>
+                    <div>
+                        Профиль:
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Email)
+                    </div>
+                    <div hidden="hidden">
+                        <input name="Логин: " type="text" asp-for="Login " />
+                    </div>
+                    <div hidden="hidden">
+                        <input name="Пароль: " type="text" asp-for="Password" />
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Last_Name)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.First_Name)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Middle_Name)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Date_Of_Birth)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="child2"><a asp-action="PostFriendView" asp-controller="home" asp-route-id="@Model.Id">Посмотреть  посты друга</a></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+
+@*@{
+        string cookieValue = _httpContextAccessor.HttpContext.Request.Cookies["user"];
+
+    }*@
+@*<div>
+        @Html.ActionLink("EditUser", "EditUser", new { id = Model.Id }) |
+        <a asp-action="AddFile">Загрузить изображение</a> |
+        <a asp-action="CreatePost">Создать пост</a> |
+        <a asp-action="PostView">Посмотреть посты</a>
+    </div>*@

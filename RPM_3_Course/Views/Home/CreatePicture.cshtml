@@ -1,0 +1,23 @@
+﻿@model RPM_3_Course.Models.Picturee
+
+@{
+    ViewBag.Title = "Добавление Аватарки";
+}
+<form asp-action="CreatePicture" asp-controller="home" class="box">
+    <div>
+        <label asp-for="Name_Picture"></label><br />
+        <input type="text" asp-for="Name_Picture" class="form-control" placeholder="Name Picture" />
+        <span asp-validation-for="Name_Picture"></span>
+    </div>
+    <div>
+        <label asp-for="Path"></label><br />
+        <input type="text" asp-for="Path" class="form-control" placeholder="Path" />
+        <span asp-validation-for="Path"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Создать" class="btn btn-default" />
+    </div>
+    <div>
+        <a asp-action="IndexPicture">Назад</a>
+    </div>
+</form>

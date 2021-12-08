@@ -1,0 +1,67 @@
+﻿@model IndexPictureViewModel
+@{
+    ViewData["Title"] = "Все Аватарки";
+}
+
+<div style="border: 5px ">
+    <a asp-action="IndexPost">Посты</a>|
+    |<a asp-action="Index">Пользователи</a>|
+    |<a asp-action="IndexPostPicture">Фотографии постов</a>
+</div>
+<a asp-action="CreatePicture">Добавить Аватарку</a>
+<form method="get" asp-action="IndexPicture" class="box">
+    <div class="form-inline form-group">
+        <label class="col-form-label-lg">Id:</label>
+        <input name="id" type="number" min="1" class="form-group" />
+        <label class="col-form-label-lg">Name:</label>
+        <input name="email" type="text" class="form-group" />
+
+        <input type="submit" class="btn" value="Поиск" />
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <td>
+            <a asp-action="IndexPicture" asp-route-sortOrder="@ViewBag.IdSort">
+                ID
+            </a>
+        </td>
+        <td>
+            <a asp-action="IndexPicture" asp-route-sortOrder="@ViewBag.EmailSort">
+                Picture
+            </a>
+        </td>
+    </tr>
+    @foreach (var item in Model.Picturee)
+    {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Name_Picture
+            </td>
+            <td>
+                <a asp-action="DetailsPicture" asp-controller="home" asp-route-id="@item.Id">Подробнее</a>
+                <a asp-action="DeletePicture" asp-controller="home" asp-route-id="@item.Id" class="del">X</a>
+                <a asp-action="EditPicture" asp-controller="home" asp-route-id="@item.Id" class="re">Edit</a>
+            </td>
+        </tr>
+    }
+</table>
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <a asp-action="IndexPicture" asp-route-page="@(Model.PageViewModel.PageNumber-1)"
+       asp-route-sortOrder="@Model.SortViewModel.Current"
+       asp-route-id="@Model.FilterViewModel.SelectId"
+       asp-route-email="@Model.FilterViewModel.SelectEmail"
+       class="btn btn-outline-dark">Назад</a>
+}
+@if (Model.PageViewModel.HasNextPage)
+{
+    <a asp-route-page="@(Model.PageViewModel.PageNumber+1)"
+       asp-route-sortOrder="@Model.SortViewModel.Current"
+       asp-route-id="@Model.FilterViewModel.SelectId"
+       asp-route-email="@Model.FilterViewModel.SelectEmail"
+       class="btn btn-outline-dark">Вперед</a>
+}

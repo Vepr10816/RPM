@@ -1,0 +1,23 @@
+﻿@model RPM_3_Course.Models.PostPicture
+@{ 
+    ViewBag.Title = "Удаление Фотографии";
+}
+<div>
+    <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd>@Html.DisplayFor(model => model.Name_Picture)</dd>
+        <dt>Path</dt>
+        <dd>@Html.DisplayFor(model => model.Path)</dd>
+    </dl>
+</div>
+<div>
+    <form asp-action="DeletePostPicture" asp-controller="home" method="post" class="box">
+        <div class="form-group">
+            <input type="submit" class="btn" value="Удалить" />
+        </div>
+    </form>
+    <form>
+        <a asp-action="IndexPostPicture">Назад</a>
+    </form>
+
+</div>

@@ -1,0 +1,40 @@
+﻿@model RPM_3_Course.Models.Picturee
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Аватарки</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name_Picture)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name_Picture)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Path)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Path)
+        </dd>
+        <dd>
+            <img width="300" height="300" src="@Url.Content(Model.Path)">
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("EditPicture", "EditPicture", new { id = Model.Id }) |
+    <a asp-action="IndexPicture">Back to List</a>
+</div>

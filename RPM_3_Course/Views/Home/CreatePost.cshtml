@@ -1,0 +1,37 @@
+﻿@model RPM_3_Course.Models.Post
+
+@{
+    ViewBag.Title = "Добавление Фотографии";
+}
+<form asp-action="CreatePost" asp-controller="home" class="box">
+    <div>
+        <label asp-for="Title"></label><br />
+        <input type="text" asp-for="Title" class="form-control" placeholder="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+    <div>
+        <label asp-for="Message"></label><br />
+        <textarea cols="10" rows="10" type="text" asp-for="Message" class="form-control" placeholder="Message"></textarea>
+        <span asp-validation-for="Message"></span>
+    </div>
+    <div>
+        <label asp-for="Date"></label><br />
+        <input type="date" asp-for="Date" class="form-control" placeholder="Date" />
+        <span asp-validation-for="Date"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserId"></label><br />
+        <input asp-for="UserId" type="number" min="1" value="1">
+    </div>
+    <div class="form-group">
+        <label asp-for="PostPictureId"></label><br />
+        <input asp-for="PostPictureId" type="number" min="1" value="1">
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Создать" class="btn btn-default" />
+    </div>
+    <div>
+        <a asp-action="IndexPost">Назад</a>
+    </div>
+</form>

@@ -1,0 +1,68 @@
+﻿@model RPM_3_Course.Models.User
+
+@{
+    ViewBag.Title = "Изменить пользователя";
+}
+<body style="background-color:#808080">
+    <div>
+        <a asp-action="Profile" style="background-color:#EEE2DC;color:black">Профиль</a>
+    </div>
+    <div style="text-align:center; background-color:#EEE2DC">
+        <form asp-action="edituser" asp-controller="home" class="box">
+            <input hidden="hidden" type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="email" asp-for="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Логин</label><br />
+                <input type="text" asp-for="Login" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Пароль</label><br />
+                <input type="text" asp-for="Password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Фамилия</label><br />
+                <input type="text" asp-for="Last_Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Имя</label><br />
+                <input type="text" asp-for="First_Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Отчество</label><br />
+                <input type="text" asp-for="Middle_Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Дата рождения</label><br />
+                <input type="date" asp-for="Date_Of_Birth" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input hidden="hidden" type="text" asp-for="RolesId" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input hidden="hidden" type="text" asp-for="PictureeId" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input style="background-color:aquamarine" type="submit" value="Редактировать" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</body>
+        @*<form method="post" enctype="multipart/form-data">
+                <div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label>Загрузить изображение</label>
+                        <input type="file" name="uploadedFile" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Добавить" class="btn btn-outline-secondary" />
+                    </div>
+                </div>
+            </form>*@
+        @*@if (Model.HasImage())
+            {
+                <img src="@Url.Action("GetImage", new { id=@Model.PictureeId})" style="width:150px;height:200px;" />
+            }*@

@@ -1,0 +1,66 @@
+﻿@model RPM_3_Course.Models.User
+
+@{
+    ViewBag.Title = "Добавление пользователя";
+}
+<form asp-action="create" asp-controller="home" class="box">
+    <div>
+        <label asp-for="Last_Name">Last_Name</label><br />
+        <input type="text" asp-for="Last_Name" class="form-control" placeholder="Last_Name" />
+        <span asp-validation-for="Last_Name"></span>
+    </div>
+    <div>
+        <label asp-for="First_Name">First_Name</label><br />
+        <input type="text" asp-for="First_Name" class="form-control" placeholder="Firs_Name" />
+        <span asp-validation-for="First_Name"></span>
+    </div>
+    <div>
+        <label asp-for="Middle_Name">Moddle_Name</label><br />
+        <input type="text" asp-for="Middle_Name" class="form-control" placeholder="Middle_Name" />
+        <span asp-validation-for="Middle_Name"></span>
+    </div>
+    <div>
+        <label asp-for="Date_Of_Birth">Date of Birth</label><br />
+        <input type="date" asp-for="Date_Of_Birth" class="form-control" />
+        <span asp-validation-for="Date_Of_Birth"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label><br />
+        <input type="email" asp-for="Email" class="form-control" placeholder="Email" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Login">Login</label><br />
+        <input type="text" asp-for="Login" class="form-control" placeholder="Login" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Password">Password</label><br />
+        <input type="password" asp-for="Password" class="form-control" placeholder="********" />
+    </div>
+    <div class="form-group">
+        <label>Role_ID</label><br />
+        <select asp-for="RolesId">
+            <option>1</option>
+            <option>2</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PictureeId"></label><br />
+        <input asp-for="PictureeId" type="number" min="1" value="1">
+    </div>
+    @*<div>
+            <label asp-for="RolesId"></label><br />
+            <input asp-for="RolesId"  class="form-control" />
+            <span asp-validation-for="RolesId"></span>
+        </div>
+        <div>
+            <label asp-for="PictureeId"></label><br />
+            <input asp-for="PictureeId"  class="form-control" />
+            <span asp-validation-for="PictureeId"></span>
+        </div>*@
+    <div class="form-group">
+        <input type="submit" value="Создать" class="btn btn-default" />
+    </div>
+    <div>
+        <a asp-action="Index">Назад</a>
+    </div>
+</form>

@@ -1,0 +1,63 @@
+﻿@model RPM_3_Course.Models.Post
+
+@{
+    ViewBag.Title = "Изменить пост";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<body style="text-align:center; background-color:#808080">
+    <div>
+        <a asp-action="Profile" style="background-color:#EEE2DC;color:black">Профиль</a>
+    </div>
+    <div style="text-align:center; background-color:#EEE2DC">
+        <form asp-action="EditPostProfile" asp-controller="home" class="box" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title">Заголовок</label><br />
+                <input type="text" asp-for="Title" class="form-control" placeholder="Title" />
+                <span asp-validation-for="Title"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Message"></label>Содержание<br />
+                <textarea cols="10" rows="10" type="text" asp-for="Message" class="form-control" placeholder="Message"></textarea>
+                <span asp-validation-for="Message"></span>
+            </div>
+            <div class="form-group" hidden="hidden">
+                <label asp-for="Date"></label><br />
+                <input type="text" asp-for="Date" class="form-control" placeholder="Date" value="@ViewBag.Date" />
+                <span asp-validation-for="Date"></span>
+            </div>
+            <div class="form-group" hidden="hidden" placeholder="UserId">
+                <input asp-for="UserId">
+            </div>
+            <div class="form-group" hidden="hidden">
+                <input asp-for="PostPictureId" placeholder="PostPicturedId">
+            </div>
+            @* <input type="file" name="file" /><br>*@
+            <div class="form-group">
+                <label>Изображение</label><br />
+                <input type="submit" value="Редактировать" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</body>
+    <style>
+        .textarea {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            resize: none;
+            min-height: 3em;
+        }
+    </style>
+    <script>
+        function fixTextareaSize(textarea) {
+            textarea.style.height = 'auto'
+            textarea.style.height = textarea.scrollHeight + 2 + "px"
+        }
+
+        ~function () {
+            var textarea = document.querySelector('textarea')
+            textarea.addEventListener('input', function (e) { fixTextareaSize(e.target) })
+            fixTextareaSize(textarea)
+        }()
+    </script>

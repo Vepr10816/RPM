@@ -1,0 +1,192 @@
+﻿
+@model RPM_3_Course.Models.User
+
+
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<body style="text-align:center; background-color:#808080">
+    <div style="text-align:center; background-color:#EEE2DC">
+        <h1 style="text-align: center" ;>
+            @Html.DisplayFor(model => model.Login)
+        </h1>
+        <table style="display: inline-block;">
+            <tr>
+                <td>
+                    <img width="300" height="300" src="@Url.Content(ViewBag.Message)">
+                </td>
+                <td width="100">
+                </td>
+                <td>
+                    <div>
+                        Профиль:
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Email)
+                    </div>
+                    <div hidden="hidden">
+                        <input name="Логин: " type="text" asp-for="Login " />
+                    </div>
+                    <div hidden="hidden">
+                        <input name="Пароль: " type="text" asp-for="Password" />
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Last_Name)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.First_Name)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Middle_Name)
+                    </div>
+                    <div>
+                        @Html.DisplayFor(model => model.Date_Of_Birth)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="child2"><a asp-action="PostProfileView">Посмотреть свои посты</a></div>
+                    <div class="child2"><a asp-action="PostsView">Лента</a></div>
+                </td>
+                <td width="100"></td>
+                <td height="200">
+                    <div class="child2"><a asp-action="AddFile">Изменить аватарку</a></div>
+                    <div class="child2"><a asp-action="PostProfileCreate">Создать пост</a></div>
+                    @Html.ActionLink("Редактировать профиль", "EditUser", new { id = Model.Id })
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+<style>
+    #text_area {
+        width: 170px;
+        height: 30px;
+        overflow: hidden;
+        padding: 5px;
+        border: 1px solid #000000;
+        font-family: Arial;
+        font-size: 12px;
+        color: #000000;
+    }
+
+    #text_area_div {
+        width: 170px;
+        font-family: Arial;
+        font-size: 12px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        visibility: hidden;
+        position: absolute;
+        left: -9999px;
+    }
+</style>
+<script>
+    function textarea_resize(event, line_height, min_line_count) {
+        var min_line_height = min_line_count * line_height;
+        var obj = event.target;
+        var div = document.getElementById(obj.id + '_div');
+        div.innerHTML = obj.value;
+        var obj_height = div.offsetHeight;
+        if (event.keyCode == 13)
+            obj_height += line_height;
+        else if (obj_height < min_line_height)
+            obj_height = min_line_height;
+        obj.style.height = obj_height + 'px';
+    }
+</script>
+@*<div class="parent" style="text-align: center;">
+        <div style="text-align: center;" class="child">
+            <img width="300" height="300" src="@Url.Content(ViewBag.Message)">
+
+        </div>
+        <div class="child">
+            <form asp-action="edit" asp-controller="home" class="box" style="text-align: center;">
+                <input type="hidden" asp-for="Id" />
+                <div>
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+                <div hidden ="hidden">
+                    <input name="Логин: " type="text" asp-for="Login " />
+                </div>
+                <div hidden ="hidden">
+                    <input name="Пароль: " type="text" asp-for="Password" />
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.Last_Name)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.First_Name)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.Middle_Name)
+                </div>
+                <div>
+                    @Html.DisplayFor(model => model.Date_Of_Birth)
+                </div>
+                <div>
+                    <input asp-for="RolesId" type="hidden" />
+                </div>
+                <div>
+                    <input asp-for="PictureeId" type="hidden" />
+                </div>
+                <div class="parent">
+                    <div class="child2"><a asp-action="AddFile">Загрузить изображение</a></div>
+                    <div class="child2"><a asp-action="PostProfileCreate">Создать пост</a></div>
+                    <div class="child2"><a asp-action="PostProfileView">Посмотреть свои посты</a></div>
+                    <div class="child2"><a asp-action="PostsView">Лента</a></div>
+                    @Html.ActionLink("EditUser", "EditUser", new { id = Model.Id })
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+
+@*@{
+        string cookieValue = _httpContextAccessor.HttpContext.Request.Cookies["user"];
+
+    }*@
+@*<div>
+        @Html.ActionLink("EditUser", "EditUser", new { id = Model.Id }) |
+        <a asp-action="AddFile">Загрузить изображение</a> |
+        <a asp-action="CreatePost">Создать пост</a> |
+        <a asp-action="PostView">Посмотреть посты</a>
+    </div>*@
+
+@*<style>
+        body {
+            width: 70%;
+        }
+
+        .damisamu-dsakgcesan .kesagub {
+            width: 540px;
+            margin: 50px;
+            display: table;
+        }
+
+            .damisamu-dsakgcesan .kesagub .gsame-kigcesan {
+                display: table-row;
+            }
+
+            .damisamu-dsakgcesan .kesagub .kesagub-cell {
+                display: table-cell;
+                width: 50%;
+                padding: 10px;
+            }
+
+                .damisamu-dsakgcesan .kesagub .kesagub-cell.kesagub1 {
+                    background: #076507;
+                    color: #f7f4f4;
+                    text-align: justify;
+                }
+
+                .damisamu-dsakgcesan .kesagub .kesagub-cell.kesagub2 {
+                    background: #253865;
+                    text-align: justify;
+                    color: #fdfdfd;
+                }
+    </style>*@
+

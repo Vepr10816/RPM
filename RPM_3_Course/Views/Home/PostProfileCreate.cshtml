@@ -1,0 +1,49 @@
+﻿@model RPM_3_Course.Models.Post
+
+@{
+    ViewBag.Title = "Создание поста";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<body style="background-color:#808080">
+    <div>
+        <a asp-action="Profile" style="background-color:#EEE2DC;color:black">Профиль</a>
+    </div>
+    <div style="text-align:center; background-color:#EEE2DC">
+        <form asp-action="PostProfileCreate" asp-controller="home" class="box" method="post" enctype="multipart/form-data">
+            <div>
+                <label asp-for="Title">Заголовок:</label><br />
+                <input type="text" asp-for="Title" class="form-control" placeholder="Заголовок" />
+                <span asp-validation-for="Title"></span>
+                <p hidden="hidden">@ViewBag.Useriidd"</p>
+            </div>
+            <div>
+                <label asp-for="Message">Содержание: </label><br />
+                <textarea cols="10" rows="10" type="text" asp-for="Message" class="form-control" placeholder="Message"></textarea>
+                <span asp-validation-for="Message"></span>
+            </div>
+            <div>
+                <label hidden="hidden" asp-for="Date"></label><br />
+                <input hidden="hidden" type="text" asp-for="Date" class="form-control" value="@ViewBag.Date" />
+                <span hidden="hidden" asp-validation-for="Date"></span>
+            </div>
+            <div>
+                <label hidden="hidden" asp-for="UserId"></label><br />
+                <input hidden="hidden" type="text" asp-for="UserId" value="@ViewBag.Useriidd" class="form-control" />
+                <span hidden="hidden" asp-validation-for="UserId"></span>
+            </div>
+
+
+            <div>
+                <label hidden="hidden" asp-for="PostPictureId"></label><br />
+                <input hidden="hidden" type="text" asp-for="PostPictureId" value="@ViewBag.MessagePost" class="form-control" />
+                <span hidden="hidden" asp-validation-for="PostPictureId"></span>
+            </div>
+            <label>Изображение: </label><br />
+            <input name="uploadedFile" type="file" /><br>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-default" />
+            </div>
+
+        </form>
+    </div>
+</body>

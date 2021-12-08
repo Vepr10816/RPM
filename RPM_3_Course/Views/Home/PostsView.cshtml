@@ -1,0 +1,74 @@
+﻿@model PostProfileView
+@{
+    ViewData["Title"] = "Все пользователи";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+<body style="background-color:#808080">
+    @foreach (var item in Model.posts)
+    {
+
+
+        <div style="text-align:center; background-color:#EEE2DC">
+            <table style="display: inline-block;">
+                <tr>
+                    <td>
+                        <div>
+                            <a asp-action="Friend" asp-controller="home" asp-route-id="@item.User.Id"> @Html.DisplayFor(modelItem => item.User.Login)</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea class="textarea" disabled>@Html.DisplayFor(modelItem => item.Message)</textarea>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img width="500" height="500" src="@Url.Content(item.PostPicture.Path)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                </tr>
+            </table>
+            <hr align="center" width="500" size="2" color="#EEE2DC" />
+        </div>
+    }
+    </body>
+
+
+
+
+<style>
+    .textarea 
+    {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        resize: none;
+        min-height: 3em;
+    }
+</style>
+<script>
+    function fixTextareaSize(textarea) {
+        textarea.style.height = 'auto'
+        textarea.style.height = textarea.scrollHeight + 2 + "px"
+    }
+
+    ~function () {
+        var textarea = document.querySelector('textarea')
+        textarea.addEventListener('input', function (e) { fixTextareaSize(e.target) })
+        fixTextareaSize(textarea)
+    }()
+</script>

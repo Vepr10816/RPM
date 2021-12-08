@@ -1,0 +1,111 @@
+﻿@model IEnumerable<RPM_3_Course.Models.Post>
+@{
+    ViewData["Title"] = "Все пользователи";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<body style=" background-color:#808080">
+
+
+    @foreach (var item in Model)
+    {
+        <div>
+            <a asp-action="Profile" style="background-color:#EEE2DC;color:black">Профиль</a>
+        </div>
+        <div style="text-align:center; background-color:#EEE2DC">
+            <table class="table">
+                <tr>
+                    <td>
+                        Заголовок:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Содержание:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea class="textarea" disabled>@Html.DisplayFor(modelItem => item.Message)</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        дата:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img width="300" height="300" src="@Url.Content(item.PostPicture.Path)">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Действия:
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-action="DeletePostProfile" asp-controller="home" asp-route-id="@item.Id" class="del">Удалить</a>
+                        <a asp-action="EditPostProfile" asp-controller="home" asp-route-id="@item.Id" class="re">Редактировать</a>
+                    </td>
+                </tr>
+
+                @*<tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            <textarea class="textarea" disabled>@Html.DisplayFor(modelItem => item.Message)</textarea>
+                        </td>
+
+                        <td>
+                            <img width="300" height="300" src="@Url.Content(item.PostPicture.Path)">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+                        <td>
+                            <a asp-action="DeletePostProfile" asp-controller="home" asp-route-id="@item.Id" class="del">Удалить</a>
+                            <a asp-action="EditPostProfile" asp-controller="home" asp-route-id="@item.Id" class="re">Редактировать</a>
+                        </td>
+
+                    </tr>*@
+            </table>
+        </div>
+    }
+
+
+</body>
+<style>
+    .textarea {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        resize: none;
+        min-height: 3em;
+    }
+</style>
+<script>
+    function fixTextareaSize(textarea) {
+        textarea.style.height = 'auto'
+        textarea.style.height = textarea.scrollHeight + 2 + "px"
+    }
+
+    ~function () {
+        var textarea = document.querySelector('textarea')
+        textarea.addEventListener('input', function (e) { fixTextareaSize(e.target) })
+        fixTextareaSize(textarea)
+    }()
+</script>

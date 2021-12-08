@@ -1,0 +1,22 @@
+﻿@model IEnumerable<RPM_3_Course.Models.Picturee>
+
+@{ 
+    ViewData["Title"] = "Аватарка";
+}
+<body style="background-color:#808080">
+    <div>
+        <a asp-action="Profile" style="background-color:#EEE2DC;color:black">Профиль</a>
+    </div>
+    <div style="text-align:center; background-color:#EEE2DC">
+        <h3>Выберите Изображение для загрузки</h3>
+        <form asp-action="AddFile" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <input type="submit" value="Загрузить" />
+        </form>
+    </div>
+</body>
+
+        @*@foreach(var f in Model)
+            {
+                <p><img src="@Url.Content(f.Path)" width="250" height="200"/></p>
+            }*@

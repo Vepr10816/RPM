@@ -1,0 +1,23 @@
+﻿@model RPM_3_Course.Models.Picturee
+
+@{
+    ViewBag.Title = "Изменить Аватарку";
+}
+<form asp-action="EditPicture" asp-controller="home" class="box">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <input type="text" asp-for="Name_Picture" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="text" asp-for="Path" class="form-control" />
+    </div>
+    <div>
+        <img width="300" height="300" src="@Url.Content(Model.Path)">
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Редактировать" class="btn btn-default" />
+    </div>
+    <div>
+        <a asp-action="IndexPicture">Назад</a>
+    </div>
+</form>

@@ -1,0 +1,28 @@
+﻿@model RPM_3_Course.Models.Post
+@{ 
+    ViewBag.Title = "Удаление Поста";
+}
+<div>
+    <dl class="dl-horizontal">
+        <dt>Title</dt>
+        <dd>@Html.DisplayFor(model => model.Title)</dd>
+        <dt>Message</dt>
+        <dd>@Html.DisplayFor(model => model.Message)</dd>
+        <dt>Date</dt>
+        <dd>@Html.DisplayFor(model => model.Date)</dd>
+        <dt>UserId</dt>
+        <dd>@Html.DisplayFor(model => model.UserId)</dd>
+        <dt>PostPictureId</dt>
+        <dd>@Html.DisplayFor(model => model.PostPictureId)</dd>
+    </dl>
+</div>
+<div>
+    <form asp-action="DeletePost" asp-controller="home" method="post" class="box">
+        <div class="form-group">
+            <input type="submit" class="btn" value="Удалить" />
+        </div>
+    </form>
+    <form>
+        <a asp-action="IndexPost">Назад</a>
+    </form>
+</div>

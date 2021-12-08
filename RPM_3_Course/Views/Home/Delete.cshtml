@@ -1,0 +1,24 @@
+﻿@model RPM_3_Course.Models.User
+@{ 
+    ViewBag.Title = "Удаление пользователя";
+}
+<div>
+    <dl class="dl-horizontal">
+        <dt>Email</dt>
+        <dd>@Html.DisplayFor(model => model.Email)</dd>
+        <dt>Login</dt>
+        <dd>@Html.DisplayFor(model => model.Login)</dd>
+        <dt>Password</dt>
+        <dd>@Html.DisplayFor(model => model.Password)</dd>
+    </dl>
+</div>
+<div>
+    <form asp-action="delete" asp-controller="home" method="post" class="box">
+        <div class="form-group">
+            <input type="submit" class="btn" value="Удалить" />
+        </div>
+    </form>
+    <form>
+        <a asp-action="Index" >Назад</a>
+    </form>
+</div>
